@@ -14,7 +14,7 @@
                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                 &nbsp;{{list.type}}<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
-                  <button type="button" @click="deleteEvent(list.id)">delete</button></p>
+                <button type="button" @click="deleteEvent(list.id)">X</button></p>
             </p>
           </div>
         </div>
@@ -63,6 +63,5 @@ export default {
 </script>
 
 <style lang="css">
-
 
 </style>

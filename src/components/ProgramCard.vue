@@ -7,7 +7,7 @@
               <div class="media-content">
                 <div class="tapprogram">
                   <p class="title is-5 text textblack"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;{{list.type}}</span>
-                    <button type="button" @click="deleteEvent(list.id)">delete</button></p>
+                    <button type="button" @click="deleteEvent(list.id)">X</button></p>
                 </div>
               </div>
             </div>

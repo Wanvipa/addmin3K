@@ -1,39 +1,40 @@
 <template lang="html">
-  <div class="app">
-    <div  class ="width-card"v-show="list.type==='sport'">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-content">
-            <div class="tapsport">
-              <p class="title is-5 text textblack">
-                <i class="fa fa-futbol-o " aria-hidden="true"></i>
-                &nbsp;{{list.sport}} </span>{{list.status}}
-                <button type="button" @click="editsta">on</button>
-                <button type="button" @click="deleteEvent(list.id)">delete</button>
-              </p>
-                {{timeout}}
-            </div>
+<div class="">
+  <div  class ="width-card"v-show="list.type==='sport'">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+            <p class="title is-5 ">
+              <i class="fa fa-futbol-o " aria-hidden="true"></i>
+              &nbsp;{{list.sport}} ( {{list.status}} )<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
+              <button @click="editsta">on</button>
+              <button @click="deleteEvent">X</button>
+            </p>
+          </div>
+      </div>
+      <div class="content"><br>
+        <h5 class="subtitle is-5 ">{{list.competition}}</h5>
+        <div class="" v-for="score in scoreSports" v-show="score.sportId === list.id && score.status">SET {{score.set}} ( {{list.kind}} )
+          <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
+          ( {{list.total1}} - {{list.total2}} )<br><br>
+          <h5 class="subtitle is-6 ">location : {{list.location}}<br><br>
+            <small class="sizedate">{{list.time}}</small>
           </div>
         </div>
-        <div class="content sizefont"><br>
-          {{list.competition}}<br>
-        <div class="" v-for="score in scoreSports" v-if="(score.sportId === list.id) && (score.status === true)">SET {{score.set}}
-          <h2  class="title is-2">{{score.team1}} - {{score.team2}}</h2> <br>
-        </div>
-          ( {{list.total1}} - {{list.total2}} ) <br>
-          location : {{list.location}}<br>
-          <small>{{list.time}}</small>
-
-        </div>
-        <a class="button is-primary" @click="addSet">Add Set</a> SET 1
-        <a class="button is-primary" @click="reduceScoreTeam1">-</a>
-        <a class="button is-primary" @click="addScoreTeam1">+</a> SET 2
-        <a class="button is-primary" @click="reduceScoreTeam2">-</a>
-        <a class="button is-primary" @click="addScoreTeam2">+</a><br>
+      </div>
+            <a class="button is-primary" @click="addSet">Add Set</a><br><br> SET 1 :
+            <a class="button is-primary" @click="reduceScoreTeam1">-</a>
+            <a class="button is-primary" @click="addScoreTeam1">+</a> SET 2 :
+            <a class="button is-primary" @click="reduceScoreTeam2">-</a>
+            <a class="button is-primary" @click="addScoreTeam2">+</a><br>
 
       </div>
     </div>
-  </div>
+
+
+
+
 </template>
 
 <script>
@@ -115,8 +116,5 @@ export default {
 </script>
 
 <style lang="css">
-.app {
-  margin-bottom: 20px;
-}
 
 </style>

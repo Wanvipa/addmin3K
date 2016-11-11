@@ -3,19 +3,44 @@
       <p class="control">
         <label class="label">Time : </label>
         <input class="input widthinput" type="text" v-model="time" >
-
       </p>
       <p class="control">
-        <label class="label">Sport : </label>
-        <input class="input widthinput" type="text" v-model="sport" >
+        <label class="label">Sport : {{sport}}</label>
+        <span class="select">
+          <select  v-model="sport">
+            <option>Basketball</option>
+            <option>Football</option>
+            <option>vallaball</option>
+            <option>Batminton</option>
+            <option>E-Sport</option>
+          </select>
+        </span>
+      </p>
+      <p class="control">
+        <label class="label">Type : {{sport}}</label>
+        <span class="select">
+          <select  v-model="kind">
+            <option>ชายเดี่ยว</option>
+            <option>หญิงเดี่ยว</option>
+            <option>คู่ผสม</option>
+            <option></option>
+
+          </select>
+        </span>
       </p>
       <p class="control">
         <label class="label">Location : </label>
         <input class="input widthinput" type="text" v-model="location" >
       </p>
       <p class="control">
-        <label class="label">competition : </label>
-        <input class="input widthinput" type="text" v-model="competition" >
+          <label class="label">competition : {{competition}}</label>
+          <span class="select">
+          <select v-model="competition">
+            <option>KMUTNB : KMLIT</option>
+            <option>KMUTT : KMUTNB</option>
+            <option>KMILT : KMUTT</option>
+          </select>
+        </span>
       </p>
       <p class="control">
         <label class="label">Status : {{status}}</label>
@@ -39,6 +64,7 @@ export default {
       type: 'sport',
       time: '',
       sport: '',
+      kind: '',
       location: '',
       competition: '',
       status: ''
@@ -55,6 +81,7 @@ export default {
         time: this.time,
         location: this.location,
         sport: this.sport,
+        kind: this.kind,
         competition: this.competition,
         status: this.status,
         total1: 0,
@@ -65,6 +92,7 @@ export default {
       this.type = ''
       this.time = ''
       this.sport = ''
+      this.kind
       this.location = ''
       this.competition = ''
       this.status = ''
@@ -78,7 +106,5 @@ export default {
 .widthinput{
   width: 200px;
 }
-.app{
-  text-align: center;
-}
+
 </style>

@@ -50,6 +50,7 @@ export default {
         sport.location = item.location
         sport.status = item.status
         sport.sport = item.sport
+        sport.kind = item.kind
         sport.total1 = item.total1
         sport.total2 = item.total2
       }
@@ -137,14 +138,8 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
 body {
   background-color:#fff;
-  /*background-image:url('./1.jpg');*/
-  /*border-style: solid;*/
-  /*border-color:white ;*/
-  /*border-width: 5px;*/
   font-family: 'PT Sans', sans-serif;
   font-family: 'Kanit', sans-serif;
-  /*font-family: 'Sriracha', cursive;*/
-  /*font-size: 10%;*/
 }
 
 </style>

@@ -31,67 +31,26 @@ export default {
 </script>
 
 <style lang="css">
-.app {
-  margin-bottom: 20px;
+.app{
+  margin-top:40px !important;
 }
-
-
 .width-card {
   width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
   text-align: center;
-  color: pink;
-  background-color: #FFFFFF ;
+  background-color: pink;
   border-top:1px solid #EFEFEF;
-  /*border-radius: 5px;*/
-  /*box-shadow: 0px 2px 5px #888888;*/
+  border-color: #ccff90;
 }
-.text{
-  color: white;
-}
-.textblack{
-  color: black;
+
+.textred{
+  color: #d32f2f !important;
 }
 .textstatus{
   color: #42B72A;
 }
-.sizefont{
-  font-size: 17px;
-}
-.headericon{
-  padding-right:70px;
+.sizedate{
+  font-size: 13px !important;
+  margin-top: auto;
 }
 
-.tapicon{
-  padding-right: 90px;
-}
-.tapsport{
-  width: 100%;
-  background-color:#EFEFEF ;
-  height: 30px;
-  border-radius: 9px;
-  padding-top: 5px;
-  padding-left: 5px;
-  color: gray;
-}
-
-.tapprogram{
-  width: 100%;
-  background-color:#EFEFEF ;
-  height: 30px;
-  border-radius: 9px;
-  padding-top: 5px;
-  padding-left: 5px;
-}
-
-.tappic{
-  width: 100%;
-  background-color:#EFEFEF;
-  height: 30px;
-  border-radius: 9px;
-  padding-top: 5px;
-  padding-left: 5px;
-
-}
 </style>

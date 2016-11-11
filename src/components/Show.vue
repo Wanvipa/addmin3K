@@ -1,25 +1,23 @@
 <template lang="html">
   <div>
       <div id="header">
-        <span class="icon is-medium" @click="home">
-        <i class="fa fa-home"></i>
+        <span class="tital" @click="home">
+          <i class="fa fa-home"></i>
         </span>
-        <span class="icon is-medium" @click="inputData = !inputData">
-          <i class="fa fa-keyboard-o" aria-hidden="true"></i>
-        </span>
-      </div>
+        <span class="tital" @click="inputData = !inputData">
+          <i class="fa fa-keyboard-o" aria-hidden="true"></i></span>
+          <h6 class="subtitle is-6">IT3K-13th (admin)</h6>
+        </div>
+        <div class="column">
 
-    <div class="column">
-      <h3 class="tital subtitle is-3">IT3K-13th: Night Life 2016 (admin)</h3>
+        </div>
+        <div class="column" v-show="!inputData"><br><br>
+          <cards :list="list" :delete-event = "deleteEvent" :edit-status="editStatus" :score-sports="scoreSports" :add-score-sport="addScoreSport" :edit-score="editScore" v-for="list in lists" :add-total-score="addTotalScore"></cards>
+        </div>
+        <div class="column" v-show="inputData">
+          <fromInput :add-event="addEvent"></fromInput>
+        </div>
 
-      </div>
-      <div class="column" v-show="!inputData">
-      <cards :list="list" :delete-event = "deleteEvent" :edit-status="editStatus" :score-sports="scoreSports" :add-score-sport="addScoreSport" :edit-score="editScore" v-for="list in lists" :add-total-score="addTotalScore"></cards>
-      </div>
-      <div class="column" v-show="inputData">
-        <fromInput :add-event="addEvent"></fromInput>
-      </div>
-      <div class="column"></div>
 
   </div>
 
@@ -49,14 +47,17 @@ export default {
 </script>
 
 <style lang="css">
-h3 {
-    text-align: center;
-    font-size: 2em !important;
-    margin-top: 55px;
+h6{
+  margin-top: -45px;
+  font-size: 1.5em !important;
+  text-align: center;
+  padding-left: 60px;
+  width: 100%;
+  color: white !important;
 }
 .tital{
-  color:gray;
-  text-shadow: white 0.1em 0.1em 0.2em;
+  color: #fff;
+  font-size: 40px;
 }
 .tap{
   width: 100%;
@@ -66,8 +67,9 @@ h3 {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
+  height: 60px;
   display: inline-block;
-  background:#ff5252;
+  background:#ef5350 ;
   padding: 10px;
   font-variant: small-caps;
   font-weight: bold;
@@ -75,5 +77,6 @@ h3 {
   box-shadow: 0 0 5px #000;
   z-index: 999;
 }
+
 
 </style>
