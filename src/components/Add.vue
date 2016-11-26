@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="app">
+  <div class="add">
     <center>
     <a class="button is-primary is-outlined" @click="mode ='sport'" >Sport</a>
     <a class="button is-primary is-outlined" @click="mode ='picture'" >Picture</a>
@@ -39,11 +39,11 @@ export default {
 </script>
 
 <style lang="css">
-.app{
+.add{
   margin-top: 50px;
   background-color: white;
   width: 100%;
-  height:100%;
+  height: 100vh ;
   text-align: center;
 }
 </style>

@@ -8,14 +8,15 @@
                 <div class="tapprogram">
                   <p class="title is-5 text textblack"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;{{list.type}}</span>
                     <button type="button" @click="deleteEvent(list.id)">X</button></p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
                 </div>
               </div>
             </div>
             <div class="content sizefont"><br>
               {{list.message}}<br>
-              location : {{list.location}}<br>
+              <a :href="list.locationLink"><h5 class="subtitle is-6 ">location : {{list.location}}</a>
               <small>{{list.time}}</small>
-              {{timeout}}
+
             </div>
           </div>
         </div>

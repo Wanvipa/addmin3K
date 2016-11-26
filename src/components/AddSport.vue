@@ -17,7 +17,7 @@
         </span>
       </p>
       <p class="control">
-        <label class="label">Type : {{sport}}</label>
+        <label class="label">Type : {{kind}}</label>
         <span class="select">
           <select  v-model="kind">
             <option>ชายเดี่ยว</option>
@@ -30,7 +30,15 @@
       </p>
       <p class="control">
         <label class="label">Location : </label>
-        <input class="input widthinput" type="text" v-model="location" >
+        <span class="select">
+          <select  v-model="location">
+            <option :value="{link: 'https://goo.gl/maps/1CHwn56KM462', name:'โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ'}">โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
+            <option :value="{link: 'https://goo.gl/maps/1CHwn56KM462', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
+            <option :value="{link: 'https://goo.gl/maps/AX4hGTpXTgL2', name:'โรงยิม'}">โรงยิม</option>
+            <option :value="{link: 'https://goo.gl/maps/4DSK2qBVBxT2', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08</option>
+            <option :value="{link: 'https://goo.gl/maps/GwLwruGj4H72', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
+          </select>
+        </span>
       </p>
       <p class="control">
           <label class="label">competition : {{competition}}</label>
@@ -79,7 +87,8 @@ export default {
       var data = {
         type: 'sport',
         time: this.time,
-        location: this.location,
+        location: this.location.name,
+        locationLink: this.location.link,
         sport: this.sport,
         kind: this.kind,
         competition: this.competition,
@@ -92,7 +101,7 @@ export default {
       this.type = ''
       this.time = ''
       this.sport = ''
-      this.kind
+      this.kind = ''
       this.location = ''
       this.competition = ''
       this.status = ''

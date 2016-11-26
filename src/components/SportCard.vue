@@ -9,7 +9,7 @@
               &nbsp;{{list.sport}} ( {{list.status}} )<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
               <button @click="editsta">on</button>
-              <button @click="deleteEvent">X</button>
+              <button @click="deleteEvent(list.id)">X</button>
             </p>
           </div>
       </div>
@@ -18,23 +18,18 @@
         <div class="" v-for="score in scoreSports" v-show="score.sportId === list.id && score.status">SET {{score.set}} ( {{list.kind}} )
           <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
           ( {{list.total1}} - {{list.total2}} )<br><br>
-          <h5 class="subtitle is-6 ">location : {{list.location}}<br><br>
-            <small class="sizedate">{{list.time}}</small>
-          </div>
+          <a :href="list.locationLink"><h5 class="subtitle is-6 ">location : {{list.location}}</a>
+            
         </div>
       </div>
-            <a class="button is-primary" @click="addSet">Add Set</a><br><br> SET 1 :
-            <a class="button is-primary" @click="reduceScoreTeam1">-</a>
-            <a class="button is-primary" @click="addScoreTeam1">+</a> SET 2 :
-            <a class="button is-primary" @click="reduceScoreTeam2">-</a>
-            <a class="button is-primary" @click="addScoreTeam2">+</a><br>
-
       </div>
+      <a class="button is-primary" @click="addSet">Add Set</a><br><br> SET 1 :
+      <a class="button is-primary" @click="reduceScoreTeam1">-</a>
+      <a class="button is-primary" @click="addScoreTeam1">+</a> SET 2 :
+      <a class="button is-primary" @click="reduceScoreTeam2">-</a>
+      <a class="button is-primary" @click="addScoreTeam2">+</a><br><br>
     </div>
-
-
-
-
+  </div>
 </template>
 
 <script>

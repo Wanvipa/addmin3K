@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* global swal */
 import firebase from 'firebase'
 var config = {
   apiKey: 'AIzaSyBasyXEYg3xGN6Y9ndOtt9chPV4m60_6Xw',
@@ -70,6 +71,11 @@ export default {
       scoreSport.team2 = item.team2
       scoreSport.status = item.status
     })
+    ScoreSports.on('child_removed', function (snapshot) {
+      var id = snapshot.key
+      var index = vm.scoreSports.findIndex(scoreSport => scoreSport.id === id)
+      vm.scoreSports.splice(index, 1)
+    })
   },
   methods: {
     addEvent (item, oldId) {
@@ -84,6 +90,7 @@ export default {
         }
         ScoreSports.push(newScore)
       }
+      swal('Add success')
     },
     addScoreSport (key, set, oldId) {
       var newScore = {
@@ -119,6 +126,7 @@ export default {
     },
     deleteEvent (id) {
       if (this.lists.find(list => list.id === id && list.type === 'sport')) {
+        swal('Do you want to delete ?')
         this.deleteScoreSports(id)
       }
       firebase.database().ref('It3k/' + id).remove()
@@ -137,9 +145,11 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
 body {
-  background-color:#fff;
+  background-color:#fff !important;
+  height: 100vh ;
   font-family: 'PT Sans', sans-serif;
   font-family: 'Kanit', sans-serif;
 }
+
 
 </style>
