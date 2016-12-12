@@ -10,10 +10,10 @@
         <div class="media">
           <div class="media-content">
             <div class="tap">
-              <p class="title is-5 ">
+              <p class="title is-5 texttype">
                 <i class="fa fa-picture-o" aria-hidden="true"></i>
-                &nbsp;{{list.type}}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
+                &nbsp;IT3K-13th Night Life 2016<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
                 <button type="button" @click="deleteEvent(list.id)">X</button></p>
             </p>
           </div>

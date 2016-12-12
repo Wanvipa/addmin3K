@@ -32,11 +32,12 @@
         <label class="label">Location : </label>
         <span class="select">
           <select  v-model="location">
-            <option :value="{link: 'https://goo.gl/maps/1CHwn56KM462', name:'โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ'}">โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
-            <option :value="{link: 'https://goo.gl/maps/1CHwn56KM462', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
-            <option :value="{link: 'https://goo.gl/maps/AX4hGTpXTgL2', name:'โรงยิม'}">โรงยิม</option>
-            <option :value="{link: 'https://goo.gl/maps/4DSK2qBVBxT2', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08</option>
-            <option :value="{link: 'https://goo.gl/maps/GwLwruGj4H72', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
+            <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ'}">โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
+            <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
+            <option :value="{link: 'https://goo.gl/maps/pcfvwmV3UWR2', name:'โรงยิม'}">โรงยิม</option>
+            <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08</option>
+            <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'สนามแข่งกีฬา ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 1'}">สนามแข่งกีฬา ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 1</option>
+            <option :value="{link: 'https://goo.gl/maps/49WJu3TxgBn', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
           </select>
         </span>
       </p>

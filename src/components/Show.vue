@@ -49,21 +49,26 @@ export default {
 <style lang="css">
 h6{
   margin-top: -45px;
-  font-size: 1.5em !important;
+  font-size: 1.3em !important;
   text-align: center;
-  padding-left: 60px;
+  padding-left: 35px;
   width: 100%;
   color: white !important;
+}
+h3 {
+  text-align: center;
+  margin-top: 0px;
 }
 .tital{
   color: #fff;
   font-size: 40px;
+  /*text-align: center;*/
 }
 .tap{
   width: 100%;
 }
 #header {
-  position: fixed;
+  /*position: fixed;*/
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;

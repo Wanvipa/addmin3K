@@ -5,16 +5,16 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <div class="tapprogram">
-                  <p class="title is-5 text textblack"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;{{list.type}}</span>
-                    <button type="button" @click="deleteEvent(list.id)">X</button></p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
+                <div class="tap">
+                  <p class="title is-5 texttype"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;{{list.type}}</span>
+                    <button type="button" @click="deleteEvent(list.id)">X</button><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small></p>
                 </div>
               </div>
             </div>
             <div class="content sizefont"><br>
-              {{list.message}}<br>
-              <a :href="list.locationLink"><h5 class="subtitle is-6 ">location : {{list.location}}</a>
+              <h5 class="subtitle is-5 ">{{list.message}}<br></h5>
+              <a :href="list.locationLink"><h5 class="subtitle is-5 ">location : {{list.location}}</a>
               <small>{{list.time}}</small>
 
             </div>

@@ -31,26 +31,54 @@ export default {
 </script>
 
 <style lang="css">
-.app{
-  margin-top:40px !important;
+
+.app {
+  margin-bottom: 10px;
+}
+h1{
+  color: #d32f2f !important;
+  display: inline-block;
+
 }
 .width-card {
   width: 100%;
   text-align: center;
-  background-color: pink;
-  border-top:1px solid #EFEFEF;
-  border-color: #ccff90;
+  background-color: #fff;
 }
 
 .textred{
   color: #d32f2f !important;
+  font-size: 60px !important;
+
+}
+.texttype{
+  color: #009688  !important;
+}
+.textlocation{
+  color: #ef5350  !important;
 }
 .textstatus{
   color: #42B72A;
+  display: inline-block;
 }
 .sizedate{
   font-size: 13px !important;
   margin-top: auto;
+}
+small{
+  color: black !important;
+}
+
+.tap{
+  width: 100% ;
+  height: 40px;
+  padding-top: 3px;
+  padding-left: 3px;
+
+}
+.iconright
+{
+  margin-left: 250px;
 }
 
 </style>
