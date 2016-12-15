@@ -142,10 +142,14 @@ export default {
 }
 </script>
 <style lang="css">
-@import url('https://fonts.googleapis.com/css?family=Kanit&subset=thai');
-body{
-  background-color:#f5f5f5;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Kanit|PT+Sans');
+body {
+  background-color:#fff !important;
+  height: 100vh ;
+  font-family: 'PT Sans', sans-serif;
   font-family: 'Kanit', sans-serif;
 }
+
 
 </style>

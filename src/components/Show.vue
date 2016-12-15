@@ -6,15 +6,15 @@
         </span>
         <span class="tital" @click="inputData = !inputData">
           <i class="fa fa-keyboard-o" aria-hidden="true"></i></span>
-          <h6 class="subtitle is-6">IT3K-13th (admin)</h6>
+          <h6 class="subtitle is-6">
         </div>
         <div class="column">
 
         </div>
-        <div class="column" v-show="!inputData"><br><br>
+        <div class="column" v-if="!inputData"><br><br>
           <cards :list="list" :delete-event = "deleteEvent" :edit-status="editStatus" :score-sports="scoreSports" :add-score-sport="addScoreSport" :edit-score="editScore" v-for="list in lists" :add-total-score="addTotalScore"></cards>
         </div>
-        <div class="column" v-show="inputData">
+        <div class="column" v-if="inputData">
           <fromInput :add-event="addEvent"></fromInput>
         </div>
 
@@ -48,7 +48,7 @@ export default {
 
 <style lang="css">
 h6{
-  margin-top: -45px;
+  margin-top: -50px;
   font-size: 1.3em !important;
   text-align: center;
   padding-left: 35px;
@@ -68,7 +68,7 @@ h3 {
   width: 100%;
 }
 #header {
-  /*position: fixed;*/
+  position: fixed;
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
@@ -82,6 +82,13 @@ h3 {
   box-shadow: 0 0 5px #000;
   z-index: 999;
 }
-
-
+.buttdel{
+  background-color: red !important;
+}
+.tapstatus{
+  margin-left: -15px;
+}
+.buttonoff{
+background-color: green !important;
+}
 </style>

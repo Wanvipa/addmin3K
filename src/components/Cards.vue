@@ -56,6 +56,7 @@ h1{
 }
 .textlocation{
   color: #ef5350  !important;
+  font-size: 15px !important;
 }
 .textstatus{
   color: #42B72A;

@@ -6,17 +6,15 @@
             <div class="media">
               <div class="media-content">
                 <div class="tap">
-                  <p class="title is-5 texttype"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;&nbsp;{{list.type}}</span>
-                    <button type="button" @click="deleteEvent(list.id)">X</button><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small></p>
-                </div>
+                  <img src="./event.png" class="tapstatus" alt="">
+                  <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a>
+                  </div>
               </div>
             </div>
             <div class="content sizefont"><br>
               <h5 class="subtitle is-5 ">{{list.message}}<br></h5>
-              <a :href="list.locationLink"><h5 class="subtitle is-5 ">location : {{list.location}}</a>
-              <small>{{list.time}}</small>
-
+              <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation">สถานที่ : {{list.location}}</a>
+             <small class="sizedate">{{list.time}}&nbsp;{{fromNow}}</small>
             </div>
           </div>
         </div>
@@ -25,33 +23,30 @@
 </template>
 
 <script>
+/* global moment */
 export default {
   props: ['list', 'deleteEvent'],
   data () {
-    return {}
-  },
-  computed: {
-    timeout () {
-      var time = ''
-      if (this.list.timePost) {
-        var timePost = this.list.timePost.split(':')
-        var timeAgo = parseInt(timePost[0]) * 60 + parseInt(timePost[1])
-        var today = new Date()
-        var timeNow = today.getHours() * 60 + today.getMinutes()
-        if (timeAgo === timeNow) {
-          time = 'เมื่อสักครู่นี้'
-        } else {
-          if (timeNow - timeAgo < 60) {
-            time = (timeNow - timeAgo) + 'นาทีที่แล้ว'
-          } else {
-            time = (parseInt(timeNow / 60) - parseInt(timeAgo / 60)) + 'ชั่วโมงที่แล้ว'
-          }
-        }
-      }
-      return time
+    return {
+      timestamp: moment(this.list.time),
+      count: 0
     }
   },
-  mounted () {},
+  created () {
+    let vm = this
+    setInterval(() => {
+      vm.count++
+    }, 1000)
+  },
+  computed: {
+    fromNow () {
+      this.count
+      return moment(this.timestamp).fromNow()
+    }
+  },
+  mounted () {
+    moment.lang('th')
+  },
   methods: {},
   components: {}
 }

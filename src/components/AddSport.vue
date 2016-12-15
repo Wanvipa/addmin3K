@@ -2,7 +2,7 @@
   <div class="app" >
       <p class="control">
         <label class="label">Time : </label>
-        <input class="input widthinput" type="text" v-model="time" >
+        <vue-timepicker v-model="timeValue"></vue-timepicker>
       </p>
       <p class="control">
         <label class="label">Sport : {{sport}}</label>
@@ -32,11 +32,9 @@
         <label class="label">Location : </label>
         <span class="select">
           <select  v-model="location">
-            <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ'}">โดมแดง มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
+            <option :value="{link: 'https://goo.gl/maps/utxXD2vQrAv', name:'อาคารศูย์กีฬาเฉลิมพระเกียรติ'}">อาคารศูย์กีฬาเฉลิมพระเกียรติ</option>
             <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
-            <option :value="{link: 'https://goo.gl/maps/pcfvwmV3UWR2', name:'โรงยิม'}">โรงยิม</option>
-            <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 4 B4-08</option>
-            <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'สนามแข่งกีฬา ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 1'}">สนามแข่งกีฬา ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม ชั้น 1</option>
+            <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
             <option :value="{link: 'https://goo.gl/maps/49WJu3TxgBn', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
           </select>
         </span>
@@ -66,28 +64,35 @@
 </template>
 
 <script>
+import VueTimepicker from 'vue2-timepicker'
 export default {
   props: ['addEvent'],
   data () {
     return {
       type: 'sport',
-      time: '',
       sport: '',
       kind: '',
       location: '',
       competition: '',
-      status: ''
+      status: '',
+      timeValue: {
+        HH: '08',
+        mm: '10',
+        ss: '00'
+      }
     }
   },
   computed: {},
-  mounted () {},
+  mounted () {
+  },
   methods: {
     add () {
       var today = new Date()
-      var timePost = today.getHours() + ':' + today.getMinutes()
+      var dayTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + this.timeValue.HH + ':' + this.timeValue.mm + ':00'
+      console.log(dayTime)
       var data = {
         type: 'sport',
-        time: this.time,
+        time: dayTime,
         location: this.location.name,
         locationLink: this.location.link,
         sport: this.sport,
@@ -95,12 +100,10 @@ export default {
         competition: this.competition,
         status: this.status,
         total1: 0,
-        total2: 0,
-        timePost
+        total2: 0
       }
       this.addEvent(data)
       this.type = ''
-      this.time = ''
       this.sport = ''
       this.kind = ''
       this.location = ''
@@ -108,7 +111,9 @@ export default {
       this.status = ''
     }
   },
-  components: {}
+  components: {
+    VueTimepicker
+  }
 }
 </script>
 

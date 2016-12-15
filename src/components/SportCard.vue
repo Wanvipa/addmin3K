@@ -1,27 +1,26 @@
 <template lang="html">
 <div class="">
-  <div  class ="width-card"v-show="list.type==='sport'">
+  <div  class ="width-card">
     <div class="card-content">
       <div class="media">
         <div class="media-content">
             <p class="title is-5 ">
               <i class="fa fa-futbol-o " aria-hidden="true"></i>
               &nbsp;{{list.sport}} ( {{list.status}} )<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{timeout}}</small>
-              <button @click="editsta">on</button>
-              <button @click="deleteEvent(list.id)">X</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;<small>{{fromNow}}</small>
+              <a class="button is-primary buttonoff"  @click="editsta">ON</a>
+              <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a>
             </p>
           </div>
-      </div>
-      <div class="content"><br>
-        <h5 class="subtitle is-5 ">{{list.competition}}</h5>
-        <div class="" v-for="score in scoreSports" v-show="score.sportId === list.id && score.status">SET {{score.set}} ( {{list.kind}} )
-          <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
-          ( {{list.total1}} - {{list.total2}} )<br><br>
-          <a :href="list.locationLink"><h5 class="subtitle is-6 ">location : {{list.location}}</a>
-            
         </div>
-      </div>
+        <div class="content"><br>
+          <h5 class="subtitle is-5 ">{{list.competition}}</h5>
+          <div class="" v-for="score in scoreSports" v-show="score.sportId === list.id && score.status">SET {{score.set}} {{list.kind}}
+            <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
+            ( {{list.total1}} - {{list.total2}} )<br><br>
+            <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation">สถานที่ : {{list.location}}</a>
+          </div>
+        </div>
       </div>
       <a class="button is-primary" @click="addSet">Add Set</a><br><br> SET 1 :
       <a class="button is-primary" @click="reduceScoreTeam1">-</a>
@@ -33,33 +32,30 @@
 </template>
 
 <script>
+/* global moment */
 export default {
   props: ['list', 'scoreSports', 'editScore', 'addScoreSport', 'editStatus', 'deleteEvent', 'addTotalScore'],
   data () {
-    return {}
-  },
-  computed: {
-    timeout () {
-      var time = ''
-      if (this.list.timePost) {
-        var timePost = this.list.timePost.split(':')
-        var timeAgo = parseInt(timePost[0]) * 60 + parseInt(timePost[1])
-        var today = new Date()
-        var timeNow = today.getHours() * 60 + today.getMinutes()
-        if (timeAgo === timeNow) {
-          time = 'เมื่อสักครู่นี้'
-        } else {
-          if (timeNow - timeAgo < 60) {
-            time = (timeNow - timeAgo) + 'นาทีที่แล้ว'
-          } else {
-            time = (parseInt(timeNow / 60) - parseInt(timeAgo / 60)) + 'ชั่วโมงที่แล้ว'
-          }
-        }
-      }
-      return time
+    return {
+      timestamp: moment(this.list.time),
+      count: 0
     }
   },
-  mounted () {},
+  created () {
+    let vm = this
+    setInterval(() => {
+      vm.count++
+    }, 1000)
+  },
+  computed: {
+    fromNow () {
+      this.count
+      return moment(this.timestamp).fromNow()
+    }
+  },
+  mounted () {
+    moment.lang('th')
+  },
   methods: {
     addSet () {
       var vm = this
