@@ -3,10 +3,7 @@
     <p class="control">
       <label class="label">Time : </label>
       <vue-timepicker v-model="timeValue"></vue-timepicker>
-    </p>
-    <p class="control">
-      <label class="label">Time S/F: </label>
-      <input class="input widthinput" type="text" v-model="message" >
+      <vue-timepicker v-model="endTimeValue"></vue-timepicker>
     </p>
     <p class="control">
       <label class="label">message: </label>
@@ -43,6 +40,11 @@ export default {
         HH: '08',
         mm: '10',
         ss: '00'
+      },
+      endTimeValue: {
+        HH: '08',
+        mm: '10',
+        ss: '00'
       }
     }
   },
@@ -53,9 +55,11 @@ export default {
       var today = new Date()
       var dayTime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + this.timeValue.HH + ':' + this.timeValue.mm + ':00'
       console.log(dayTime)
+      var endTime = this.endTimeValue.HH + ':' + this.endTimeValue.mm
       var data = {
         type: 'Program',
         time: dayTime,
+        endTime: endTime,
         message: this.message,
         locationLink: this.location.link,
         location: this.location.name

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-/* global swal */
 import firebase from 'firebase'
 var config = {
   apiKey: 'AIzaSyBasyXEYg3xGN6Y9ndOtt9chPV4m60_6Xw',
@@ -90,7 +89,6 @@ export default {
         }
         ScoreSports.push(newScore)
       }
-      swal('Add success')
     },
     addScoreSport (key, set, oldId) {
       var newScore = {
@@ -126,7 +124,6 @@ export default {
     },
     deleteEvent (id) {
       if (this.lists.find(list => list.id === id && list.type === 'sport')) {
-        swal('Do you want to delete ?')
         this.deleteScoreSports(id)
       }
       firebase.database().ref('It3k/' + id).remove()

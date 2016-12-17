@@ -7,14 +7,15 @@
               <div class="media-content">
                 <div class="tap">
                   <img src="./event.png" class="tapstatus" alt="">
-                  <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a>
-                  </div>
+                  <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small class="sizedate">{{fromNow}}</small>
+                </div><br>
               </div>
             </div>
             <div class="content sizefont"><br>
               <h5 class="subtitle is-5 ">{{list.message}}<br></h5>
-              <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation">สถานที่ : {{list.location}}</a>
-             <small class="sizedate">{{list.time}}&nbsp;{{fromNow}}</small>
+              <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation"><i class="fa fa-map-marker location" aria-hidden="true"></i> : {{list.location}}</a>
+                {{date}}
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@ export default {
   props: ['list', 'deleteEvent'],
   data () {
     return {
-      timestamp: moment(this.list.time),
+      timestamp: '',
       count: 0
     }
   },
@@ -39,8 +40,12 @@ export default {
     }, 1000)
   },
   computed: {
+    date () {
+      return this.list.time.substr(10, this.list.time.length - 13) + ' - ' + this.list.endTime
+    },
     fromNow () {
       this.count
+      this.timestamp = moment(this.list.time)
       return moment(this.timestamp).fromNow()
     }
   },

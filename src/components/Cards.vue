@@ -5,7 +5,6 @@
     <program-card v-if="list.type==='Program'":list="list" :delete-event = "deleteEvent" ></program-card>
   </div>
 </template>
-
 <script>
 import SportCard from './SportCard'
 import PicCard from './PicCard'

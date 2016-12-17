@@ -5,9 +5,8 @@
       <div class="media">
         <div class="media-content">
             <p class="title is-5 ">
-              <i class="fa fa-futbol-o " aria-hidden="true"></i>
-              &nbsp;{{list.sport}} ( {{list.status}} )<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<small>{{fromNow}}</small>
+              <img src="./sport.png" alt=""> : {{list.sport}} ( {{list.status}} )<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{fromNow}}</small>
               <a class="button is-primary buttonoff"  @click="editsta">ON</a>
               <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a>
             </p>
@@ -18,7 +17,7 @@
           <div class="" v-for="score in scoreSports" v-show="score.sportId === list.id && score.status">SET {{score.set}} {{list.kind}}
             <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
             ( {{list.total1}} - {{list.total2}} )<br><br>
-            <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation">สถานที่ : {{list.location}}</a>
+            <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation"><i class="fa fa-map-marker location" aria-hidden="true"></i> : {{list.location}}</a>
           </div>
         </div>
       </div>
@@ -37,7 +36,7 @@ export default {
   props: ['list', 'scoreSports', 'editScore', 'addScoreSport', 'editStatus', 'deleteEvent', 'addTotalScore'],
   data () {
     return {
-      timestamp: moment(this.list.time),
+      timestamp: '',
       count: 0
     }
   },
@@ -50,6 +49,7 @@ export default {
   computed: {
     fromNow () {
       this.count
+      this.timestamp = moment(this.list.time)
       return moment(this.timestamp).fromNow()
     }
   },
