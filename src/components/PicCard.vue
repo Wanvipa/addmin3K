@@ -3,7 +3,7 @@
     <div  class ="width-card"v-show="list.type==='Picture'">
       <div class="card-image">
         <figure class="image is-3by2">
-          <img :src="list.picture" alt="">
+          <img class="editimg" :src="list.picture" width="80px" alt="">
         </figure>
       </div>
       <div class="card-content">
@@ -40,5 +40,8 @@ export default {
 </script>
 
 <style lang="css">
-
+.editimg{
+  width: 100% !important;
+  height: 100% !important;
+}
 </style>
