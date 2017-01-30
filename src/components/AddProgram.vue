@@ -28,7 +28,7 @@
 <script>
 import VueTimepicker from 'vue2-timepicker'
 export default {
-  props: ['addEvent'],
+  props: ['user', 'addEvent'],
   data () {
     return {
       type: 'Program',
@@ -62,7 +62,8 @@ export default {
         endTime: endTime,
         message: this.message,
         locationLink: this.location.link,
-        location: this.location.name
+        location: this.location.name,
+        admin: this.user.displayName
       }
       this.addEvent(data)
       this.time = ''

@@ -5,20 +5,22 @@
           <i class="fa fa-home"></i>
         </span>
         <span class="tital" @click="inputData = !inputData">
-          <i class="fa fa-keyboard-o" aria-hidden="true"></i></span>
-          <h6 class="subtitle is-6">
-        </div>
+          <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+        </span>
+      </div>
         <div class="column">
-
+         <!-- <h6 class="subtitle is-6">{{user.displayName}}</h6> -->
         </div>
         <div class="column" v-if="!inputData"><br><br>
+          ชื่อผู้เข้าใช้ : <h1>{{user.displayName}}</h1>
+          <span  @click="signOut">
+            <i class="fa fa-sign-out icon is-medium" style="color: black;"></i>
+          </span>
           <cards :list="list" :delete-event = "deleteEvent" :edit-status="editStatus" :score-sports="scoreSports" :add-score-sport="addScoreSport" :edit-score="editScore" v-for="list in lists" :add-total-score="addTotalScore"></cards>
         </div>
         <div class="column" v-if="inputData">
-          <fromInput :add-event="addEvent"></fromInput>
+          <fromInput :user="user" :add-event="addEvent"></fromInput>
         </div>
-
-
   </div>
 
 </template>
@@ -26,7 +28,7 @@
 import Cards from './Cards'
 import fromInput from './Add'
 export default {
-  props: ['lists', 'addEvent', 'scoreSports', 'editScore', 'addScoreSport', 'editStatus', 'deleteEvent', 'addTotalScore'],
+  props: ['user', 'signOut', 'lists', 'addEvent', 'scoreSports', 'editScore', 'addScoreSport', 'editStatus', 'deleteEvent', 'addTotalScore'],
   data () {
     return {
       inputData: false

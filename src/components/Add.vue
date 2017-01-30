@@ -5,9 +5,9 @@
     <a class="button is-primary is-outlined" @click="mode ='picture'" >Picture</a>
     <a class="button is-primary is-outlined" @click="mode ='event'" >Program</a>
   </center>
-    <add-program v-show="mode === 'event'" :add-event="addEvent"> </add-program>
-    <add-sport v-show="mode === 'sport'" :add-event="addEvent"> </add-sport>
-    <add-pic v-show="mode === 'picture'" :add-event="addEvent"> </add-pic>
+    <add-program :user="user" v-show="mode === 'event'" :add-event="addEvent"> </add-program>
+    <add-sport :user="user" v-show="mode === 'sport'" :add-event="addEvent"> </add-sport>
+    <add-pic :user="user" v-show="mode === 'picture'" :add-event="addEvent"> </add-pic>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ import AddPic from './AddPic'
 import AddProgram from './AddProgram'
 import AddSport from './AddSport'
 export default {
-  props: ['addEvent'],
+  props: ['user', 'addEvent'],
   data () {
     return {
       type: '',

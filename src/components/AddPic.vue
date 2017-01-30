@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  props: ['addEvent'],
+  props: ['user', 'addEvent'],
   data () {
     return {
       type: 'Picture',
@@ -38,7 +38,8 @@ export default {
         time: this.time,
         picture: this.picture,
         caption: this.caption,
-        timePost
+        timePost,
+        admin: this.user.displayName
       }
       this.addEvent(data)
       this.type = ''

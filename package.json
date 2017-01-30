@@ -10,7 +10,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "firebaseui": "^1.0.0",
     "vue": "^2.0.1",
+    "vue-loader": "^9.9.5",
     "vue2-timepicker": "^0.1.4"
   },
   "devDependencies": {

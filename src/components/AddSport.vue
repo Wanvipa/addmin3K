@@ -10,9 +10,10 @@
           <select  v-model="sport">
             <option>Basketball</option>
             <option>Football</option>
-            <option>vallaball</option>
-            <option>Batminton</option>
+            <option>Volleyball</option>
+            <option>Badminton</option>
             <option>E-Sport</option>
+            <option>Table Tennis</option>
           </select>
         </span>
       </p>
@@ -23,8 +24,8 @@
             <option>ชายเดี่ยว</option>
             <option>หญิงเดี่ยว</option>
             <option>คู่ผสม</option>
-            <option></option>
-
+            <option>ชาย</option>
+            <option>หญิง</option>
           </select>
         </span>
       </p>
@@ -32,7 +33,7 @@
         <label class="label">Location : </label>
         <span class="select">
           <select  v-model="location">
-            <option :value="{link: 'https://goo.gl/maps/utxXD2vQrAv', name:'อาคารศูย์กีฬาเฉลิมพระเกียรติ'}">อาคารศูย์กีฬาเฉลิมพระเกียรติ</option>
+            <option :value="{link: 'https://goo.gl/maps/utxXD2vQrAv', name:'อาคารศูนย์กีฬาเฉลิมพระเกียรติ'}">อาคารศูนย์กีฬาเฉลิมพระเกียรติ</option>
             <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
             <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
             <option :value="{link: 'https://goo.gl/maps/49WJu3TxgBn', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
@@ -66,7 +67,7 @@
 <script>
 import VueTimepicker from 'vue2-timepicker'
 export default {
-  props: ['addEvent'],
+  props: ['user', 'addEvent'],
   data () {
     return {
       type: 'sport',
@@ -100,7 +101,8 @@ export default {
         competition: this.competition,
         status: this.status,
         total1: 0,
-        total2: 0
+        total2: 0,
+        admin: this.user.displayName
       }
       this.addEvent(data)
       this.type = ''

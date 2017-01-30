@@ -5,7 +5,7 @@
       <div class="media">
         <div class="media-content">
             <p class="title is-5 ">
-              <img src="./sport.png" alt=""> : {{list.sport}} ( {{list.status}} )<br>
+              <img src="./sport.png" alt=""> {{list.sport}} ( {{list.status}} )<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{fromNow}}</small>
               <a class="button is-primary buttonoff"  @click="editsta">ON</a>
               <a class="button is-primary buttdel"  @click="deleteEvent(list.id)">ลบ</a>
@@ -18,13 +18,14 @@
             <h2 class="title is-2 textred ">{{score.team1}} - {{score.team2}}</h2>
             ( {{list.total1}} - {{list.total2}} )<br><br>
             <a :href="list.locationLink"><h5 class="subtitle is-5 textlocation"><i class="fa fa-map-marker location" aria-hidden="true"></i> : {{list.location}}</a>
+            Admin: {{list.admin}}
           </div>
         </div>
       </div>
-      <a class="button is-primary" @click="addSet">Add Set</a><br><br> SET 1 :
-      <a class="button is-primary" @click="reduceScoreTeam1">-</a>
-      <a class="button is-primary" @click="addScoreTeam1">+</a> SET 2 :
-      <a class="button is-primary" @click="reduceScoreTeam2">-</a>
+      <a class="button is-primary" @click="addSet">Add Set</a><br><br> team 1 :
+      <a class="button is-primary" @click="reduceScoreTeam1" :disabled="scoreTeam(1)">-</a>
+      <a class="button is-primary" @click="addScoreTeam1">+</a> team 2 :
+      <a class="button is-primary" @click="reduceScoreTeam2" :disabled="scoreTeam(2)">-</a>
       <a class="button is-primary" @click="addScoreTeam2">+</a><br><br>
     </div>
   </div>
@@ -84,12 +85,12 @@ export default {
     reduceScoreTeam1 () {
       var vm = this
       var score = this.scoreSports.find(score => score.sportId === vm.list.id && score.status)
-      this.editScore(parseInt(score.team1) - 1, score.team2, score.id)
+      if (score.team1 > 0) this.editScore(parseInt(score.team1) - 1, score.team2, score.id)
     },
     reduceScoreTeam2 () {
       var vm = this
       var score = this.scoreSports.find(score => score.sportId === vm.list.id && score.status)
-      this.editScore(score.team1, parseInt(score.team2) - 1, score.id)
+      if (score.team2 > 0) this.editScore(score.team1, parseInt(score.team2) - 1, score.id)
     },
     editsta () {
       var status
@@ -99,6 +100,17 @@ export default {
         status = 'จบการแข่งขัน'
       }
       this.editStatus(status, this.list.id)
+    },
+    scoreTeam (team) {
+      var vm = this
+      var score = this.scoreSports.find(score => score.sportId === vm.list.id && score.status)
+      if (score) {
+        if (team === 1) {
+          return score.team1 <= 0
+        } else if (team === 2) {
+          return score.team2 <= 0
+        }
+      }
     }
   },
   components: {
