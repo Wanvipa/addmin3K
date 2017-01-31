@@ -226,8 +226,8 @@ export default {
     signOut () {
       firebase.auth().signOut()
       this.user = ''
-      window.location.assign('https://accounts.google.com/Logout')
-      window.location.replace('https://admin3k-725fd.firebaseapp.com')
+      window.location.assign('https://accounts.google.com/Logout?hl=th&continue=https://www.google.com')
+      // window.location.replace('https://admin3k-725fd.firebaseapp.com')
     }
   }
 }
