@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "admin3k-725fd",
-    "adminIT3K": "admin3k-94d7b"
+    "admin-it3k-2016": "admin3k-725fd"
   }
 }

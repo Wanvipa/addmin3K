@@ -17,6 +17,7 @@
           <option :value="{link: 'https://goo.gl/maps/ihEyHNNVhDH2', name:'สนามฟุตบอล'}">สนามฟุตบอล KMUTNB</option>
           <option :value="{link: 'https://goo.gl/maps/YAqhKPyzNUw', name:'อาคารโรงอาหาร'}">อาคารโรงอาหาร</option>
           <option :value="{link: 'https://goo.gl/maps/C6izqXaKWKv', name:'ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม'}">ตึกคณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
+          <option :value="{link: 'https://goo.gl/maps/FnNGiWJFBBs', name:'ห้องพวงแสด'}">ห้องพวงแสด</option>
           <option :value="{link: 'https://goo.gl/maps/49WJu3TxgBn', name:'สนามบาสเยื้องหน้าหอชาย'}">สนามบาสเยื้องหน้าหอชาย</option>
         </select>
       </span>
