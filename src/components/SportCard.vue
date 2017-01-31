@@ -104,7 +104,7 @@ export default {
   computed: {
     fromNow () {
       this.count
-      this.timestamp = moment(this.list.time)
+      this.timestamp = moment(this.list.time, 'YYYY-MM-DD HH:mm Z')
       return moment(this.timestamp).fromNow()
     }
   },
